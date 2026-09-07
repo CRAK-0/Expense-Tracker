@@ -1,0 +1,468 @@
+:root {
+  --primary: #d4a373;
+  --secondary: #fef3c7;
+  --third: #9ca3af;
+  --background: #20252b;
+}
+
+/* ---------- Base ---------- */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--background);
+  color: var(--secondary);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border: 5px solid var(--primary);
+}
+
+/* ---------- Header ---------- */
+
+header {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+header h1 {
+  margin-left: 20px;
+  color: var(--secondary);
+  font-size: 32px;
+  letter-spacing: 1px;
+}
+
+/* ---------- Main ---------- */
+
+main {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Don't let main div affect every nested div */
+main > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+/* ---------- Cahrt and trans ---------- */
+
+#chart_trans {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  height: 50vh;
+  width: 100%;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ---------- Add Transaction ---------- */
+
+#ADD_Trans {
+  border: 2px solid var(--primary);
+  border-radius: 10px;
+  height: 45vh;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#take_input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  margin-left: 97px;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+}
+
+#take_input div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 280px;
+}
+#take_input div label {
+  width: 80px;
+  font-size: larger;
+  font-weight: bold;
+}
+#take_input div .input,
+#take_input div select {
+  width: 180px;
+  height: 24px;
+  font-size: smaller;
+  font-weight: bold;
+}
+
+#option {
+  height: 38px;
+  width: 140px;
+  padding: 0 10px;
+  border: 1px solid var(--third);
+  border-radius: 6px;
+  background-color: var(--secondary);
+  color: var(--background);
+  outline: none;
+}
+
+.input:focus,
+#take_input select:focus {
+  border: 2px solid var(--primary);
+}
+
+button {
+  height: 38px;
+  min-width: 80px;
+  padding: 0 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--primary);
+  color: var(--background);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--secondary);
+}
+
+/* ---------- Transactions + Edit ---------- */
+
+#showAndEdit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  margin-top: 45px;
+}
+
+/* ---------- Transaction List ---------- */
+
+.show_transactions {
+  border: 2px solid white;
+  border-radius: 10px;
+  height: 45vh;
+  width: 90%;
+  overflow-y: auto;
+  padding: 12px;
+  background-color: #68594a;
+}
+
+#show_transactions {
+  width: 100%;
+}
+
+/* Transaction cards */
+
+#show_transactions .transaction-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+
+  width: 100%;
+  min-height: 65px;
+
+  margin-bottom: 10px;
+  padding: 10px 14px;
+
+  border: 1px solid var(--third);
+  border-radius: 8px;
+
+  background-color: var(--background);
+}
+
+#show_transactions .transaction-card h3 {
+  margin: 0;
+  color: var(--secondary);
+}
+
+#show_transactions .transaction-card p {
+  margin: 0;
+  color: var(--secondary);
+}
+
+#show_transactions .transaction-card button {
+  margin-left: auto;
+}
+
+#show_transactions .transaction-card button + button {
+  margin-left: 0;
+}
+
+/* ---------- Chart ---------- */
+
+#chart-container {
+  height: 45vh;
+  width: 40%;
+  border: 2px solid var(--primary);
+  border-radius: 10px;
+  padding: 30px;
+}
+
+/* ---------- Edit Modal ---------- */
+
+#edit-modal {
+  display: none;
+
+  width: 90%;
+  padding: 20px;
+
+  border: 2px solid var(--third);
+  border-radius: 10px;
+
+  background-color: #68594a;
+
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+
+  gap: 12px;
+}
+
+#edit-modal input,
+#edit-modal select {
+  width: 100%;
+  height: 38px;
+  padding: 0 8px;
+
+  border: 1px solid var(--third);
+  border-radius: 6px;
+
+  background-color: var(--secondary);
+  color: var(--background);
+  outline: none;
+}
+
+#edit-modal input:focus,
+#edit-modal select:focus {
+  border: 2px solid var(--primary);
+}
+
+#edit-title {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+}
+
+#edit-amount {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+}
+
+#edit-type {
+  grid-row: 1 / 2;
+  grid-column: 3 / 4;
+}
+
+#edit-category {
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+}
+
+#edit-date {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+}
+
+#save-edit {
+  grid-row: 3 / 4;
+  grid-column: 1 / 2;
+}
+
+#cancel-edit {
+  grid-row: 3 / 4;
+  grid-column: 2 / 3;
+}
+/* ---------- Balance,Income,Expense div ---------- */
+
+#bal_div {
+  display: flex;
+  flex-direction: row;
+  font-size: x-large;
+  font-weight: 800;
+  gap: 30px;
+  height: 10vh;
+  justify-content: space-around;
+  border: 2px solid var(--primary);
+  border-radius: 10px;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+}
+
+footer h3 {
+  margin: 0;
+  color: var(--third);
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  /* ---------- Main ---------- */
+
+  main {
+    width: 94%;
+  }
+
+  /* ---------- Header ---------- */
+
+  header h1 {
+    font-size: 26px;
+    margin-left: 12px;
+  }
+
+  /* ---------- Chart + Add Transaction ---------- */
+
+  #chart_trans {
+    flex-direction: column;
+    height: auto;
+    gap: 20px;
+  }
+
+  #ADD_Trans {
+    width: 100%;
+    height: auto;
+    min-height: 400px;
+    padding: 20px;
+  }
+
+  #chart-container {
+    width: 100%;
+    height: 300px;
+    padding: 15px;
+  }
+
+  /* ---------- Add Transaction Inputs ---------- */
+
+  #take_input {
+    margin-left: 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  #take_input div {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  #take_input div label {
+    font-size: 16px;
+  }
+
+  #take_input div .input,
+  #take_input div select {
+    width: 180px;
+  }
+
+  /* ---------- Balance / Income / Expense ---------- */
+
+  #bal_div {
+    height: auto;
+    min-height: 80px;
+    width: 100%;
+    gap: 10px;
+    font-size: large;
+    padding: 15px 5px;
+  }
+
+  /* ---------- Transactions ---------- */
+
+  .show_transactions {
+    width: 100%;
+    height: 400px;
+  }
+
+  #show_transactions .transaction-card {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  #show_transactions .transaction-card button {
+    margin-left: 0;
+  }
+
+  /* ---------- Edit Modal ---------- */
+
+  #edit-modal {
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  #edit-title,
+  #edit-amount,
+  #edit-type,
+  #edit-category,
+  #edit-date,
+  #save-edit,
+  #cancel-edit {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
+/* ---------- Tablet ---------- */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  main {
+    width: 94%;
+  }
+
+  #chart_trans {
+    gap: 20px;
+  }
+
+  #ADD_Trans {
+    width: 48%;
+  }
+
+  #chart-container {
+    width: 49%;
+    padding: 20px;
+  }
+
+  #take_input {
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  #take_input div {
+    width: 100%;
+    max-width: 330px;
+  }
+
+  #take_input div label {
+    font-size: 16px;
+  }
+
+  #take_input div .input,
+  #take_input div select {
+    width: 170px;
+  }
+
+  #bal_div {
+    width: 100%;
+    font-size: large;
+    gap: 15px;
+  }
+
+  .show_transactions {
+    width: 100%;
+  }
+}

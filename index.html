@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div>
+      <header>
+        <h1>Expense Tracker</h1>
+      </header>
+      <main>
+        <div id="bal_div">
+          <div id="balance">Balance</div>
+          <div id="income">Income</div>
+          <div id="expense">Expense</div>
+        </div>
+        <div id="chart_trans">
+          <div id="ADD_Trans">
+            <h1>Add Transactions</h1>
+            <div id="take_input">
+              <div>
+                <label for="title_input">Title</label>
+                <input
+                  class="input"
+                  id="title_input"
+                  type="text"
+                  placeholder="Enter title"
+                />
+              </div>
+
+              <div>
+                <label for="amount_input">Amount</label>
+                <input
+                  class="input"
+                  id="amount_input"
+                  type="number"
+                  placeholder="Enter amount"
+                />
+              </div>
+
+              <div>
+                <label for="option">Type</label>
+                <select required name="Expense Type" id="option">
+                  <option value="" disabled selected hidden>
+                    Select your option...
+                  </option>
+                  <option value="expense">Expense</option>
+                  <option value="income">Income</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="category_input">Category</label>
+                <input
+                  class="input"
+                  id="category_input"
+                  type="text"
+                  placeholder="Enter category"
+                />
+              </div>
+
+              <div>
+                <label for="date_input">Date</label>
+                <input class="input" id="date_input" type="date" />
+              </div>
+            </div>
+            <button id="ADDBtn">Submit</button>
+          </div>
+          <div id="chart-container">
+            <h2>Expense by Category</h2>
+            <canvas id="expenseChart"></canvas>
+          </div>
+        </div>
+        <div id="showAndEdit">
+          <div class="show_transactions">
+            <div id="show_transactions">
+              <!-- Show the Expense deatails -->
+            </div>
+          </div>
+          <div id="edit-modal">
+            <input id="edit-title" />
+            <input id="edit-amount" />
+            <select id="edit-type">
+              <option value="expense">Expense</option>
+              <option value="income">Income</option>
+            </select>
+            <input id="edit-category" />
+            <input id="edit-date" type="date" />
+
+            <button id="save-edit">Save</button>
+            <button id="cancel-edit">Cancel</button>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <h3>copyright under control</h3>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="./dist/main.js"></script>
+  </body>
+</html>
